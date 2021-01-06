@@ -105,7 +105,6 @@ def teacher_signup_view(request):
 
 
 
-#for checking user is techer , student or admin(by sumit)
 def is_admin(user):
     return user.groups.filter(name='ADMIN').exists()
 def is_teacher(user):
@@ -152,7 +151,7 @@ def admin_dashboard_view(request):
 
     notice=models.Notice.objects.all()
 
-    #aggregate function return dictionary so fetch data from dictionay(by sumit)
+    
     mydict={
         'teachercount':teachercount,
         'pendingteachercount':pendingteachercount,
@@ -290,7 +289,6 @@ def admin_view_teacher_salary_view(request):
 
 
 
-#for student by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn(by sumit)
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -460,7 +458,6 @@ def admin_view_attendance_view(request,cl):
 
 
 
-#fee related view by admin
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_fee_view(request):
@@ -480,7 +477,6 @@ def admin_view_fee_view(request,cl):
 
 
 
-#notice related views
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_notice_view(request):
