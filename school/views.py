@@ -14,21 +14,18 @@ def home_view(request):
 
 
 
-#for showing signup/login button for teacher(by sumit)
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'school/adminclick.html')
 
 
-#for showing signup/login button for teacher(by sumit)
 def teacherclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'school/teacherclick.html')
 
 
-#for showing signup/login button for student(by sumit)
 def studentclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -402,7 +399,6 @@ def admin_view_student_fee_view(request):
 
 
 
-#attendance related view
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_attendance_view(request):
@@ -497,7 +493,6 @@ def admin_notice_view(request):
 
 
 
-#for TEACHER  LOGIN    SECTION
 @login_required(login_url='teacherlogin')
 @user_passes_test(is_teacher)
 def teacher_dashboard_view(request):
@@ -582,7 +577,6 @@ def teacher_notice_view(request):
 
 
 
-#FOR STUDENT AFTER THEIR Login
 @login_required(login_url='studentlogin')
 @user_passes_test(is_student)
 def student_dashboard_view(request):
@@ -622,7 +616,6 @@ def student_attendance_view(request):
 
 
 
-# for aboutus and contact us
 def aboutus_view(request):
     return render(request,'school/aboutus.html')
 
